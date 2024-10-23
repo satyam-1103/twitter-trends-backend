@@ -21,7 +21,7 @@ const PORT = process.env.PORT || 3000;
 
 const corsOptions = {
 
-  origin: [ 'https://twitter-trends-frontend.vercel.app', 'http://localhost:3000' ], // Removed trailing slashes
+  origin: [ 'https://twitter-trends-phi.vercel.app','https://twitter-trends-frontend.vercel.app', 'http://localhost:3000' ], // Removed trailing slashes
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Add any additional headers you might need
   credentials: true, // If you're sending cookies or other credentials
