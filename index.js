@@ -20,16 +20,12 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const corsOptions = {
-<<<<<<< HEAD
-  origin: ["http://localhost:3000"], // Replace with your frontend URLs
-  methods: ["GET", "POST", "PUT", "DELETE"], // Allowed methods
-  allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
-=======
+
   origin: [ 'https://twitter-trends-frontend.vercel.app', 'http://localhost:3000' ], // Removed trailing slashes
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Add any additional headers you might need
   credentials: true, // If you're sending cookies or other credentials
->>>>>>> 39c65a523c35a662c3f91e97cc15f98d8bfe62f5
+
 };
 
 app.use(cors(corsOptions));
