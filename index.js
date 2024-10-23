@@ -6,8 +6,13 @@ import mongoose from "mongoose";
 import locationRoute from "./routes/locationRoute.js";
 import errorHandler from "./middlewares/errorHandler.js";
 import rateLimit from "express-rate-limit";
-import trendRoute from "./routes/trendRoute.js"
-import cors from "cors"
+import trendRoute from "./routes/trendRoute.js";
+import privacyPolicyRoute from "./routes/privacyPolicyRoute.js";
+import homepageRoute from "./routes/homeRoute.js";
+import termsRoute from "./routes/termsRoute.js";
+import disclaimerRoute from "./routes/disclaimerRoute.js";
+import adminRoute from "./routes/admin.js"
+import cors from "cors";
 
 dotenv.config();
 
@@ -15,13 +20,16 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 const corsOptions = {
+
+
   origin: [ 'https://twitter-trends-frontend.vercel.app', 'http://localhost:3000' ], // Removed trailing slashes
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Add any additional headers you might need
   credentials: true, // If you're sending cookies or other credentials
+
 };
 
-app.use(cors(corsOptions))
+app.use(cors(corsOptions));
 
 // Middleware to parse JSON
 app.use(express.json());
@@ -59,7 +67,12 @@ mongoose
 
 // Routes
 app.use("/api/locations", locationRoute);
-app.use('/api/trends', trendRoute)
+app.use("/api/trends", trendRoute);
+app.use("/api/privacy-policy", privacyPolicyRoute);
+app.use("/api/homepage", homepageRoute);
+app.use("/api/terms-conditions", termsRoute);
+app.use("/api/disclaimer", disclaimerRoute);
+app.use('/api/admin', adminRoute)
 
 // Home Route
 app.get("/", (req, res) => {
